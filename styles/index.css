@@ -1,0 +1,149 @@
+@font-face {
+  font-family: 'UniversBlack';
+  src: url("../fonts/UniversLTStd-Black.otf"); }
+@font-face {
+  font-family: 'UniversLight';
+  src: url("../fonts/UniversLTStd-Light.otf"); }
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans'; }
+
+input[type=range] {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  background: transparent;
+  /* Otherwise white in Chrome */
+  width: 90%;
+  position: relative;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  top: 50%; }
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; }
+
+input[type=range]:focus {
+  outline: none;
+  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */ }
+
+input[type=range]::-ms-track {
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent; }
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  border-radius: 5px;
+  height: 30px;
+  width: 30px;
+  background-color: #4CAE4C;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ }
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  border-radius: 5px;
+  height: 30px;
+  width: 30px;
+  background-color: #4CAE4C;
+  cursor: pointer; }
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  border-radius: 5px;
+  height: 30px;
+  width: 30px;
+  background-color: #4CAE4C;
+  cursor: pointer; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 90%;
+  position: relative;
+  height: 5px;
+  background-color: #662D91;
+  cursor: pointer;
+  border-radius: 5px; }
+
+input[type=range]::-moz-range-track {
+  width: 90%;
+  position: relative;
+  height: 5px;
+  background-color: #662D91;
+  cursor: pointer;
+  border-radius: 5px; }
+
+input[type=range]::-ms-track {
+  width: 90%;
+  position: relative;
+  height: 5px;
+  background-color: #662D91;
+  cursor: pointer;
+  border-radius: 5px; }
+
+input[type=range]::-ms-fill-lower {
+  width: 90%;
+  position: relative;
+  height: 5px;
+  background-color: #662D91;
+  cursor: pointer;
+  border-radius: 5px; }
+
+input[type=range]::-ms-fill-upper {
+  width: 90%;
+  position: relative;
+  height: 5px;
+  background-color: #662D91;
+  cursor: pointer;
+  border-radius: 5px; }
+
+.container {
+  height: 100%;
+  width: 100%; }
+
+.form {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+  height: 80%; }
+  .form__input {
+    height: calc(100% / 5);
+    width: 100%; }
+  .form__value {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    display: inline-block;
+    color: #50197A;
+    position: relative;
+    top: 30px;
+    font-size: 1.8em;
+    text-align: center; }
+
+.repayment {
+  color: #4CAE4C;
+  position: absolute;
+  height: 10%;
+  width: 100%;
+  bottom: 0; }
+  .repayment span {
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: relative;
+    font-size: 2.2em; }
+
+/*# sourceMappingURL=index.css.map */

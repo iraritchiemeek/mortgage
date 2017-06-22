@@ -1,0 +1,179 @@
+$color1: #50197A;
+$color2: #662D91;
+$color3: #4CAE4C;
+
+$neutral1:white;
+$neutral2:#ECEFF2;
+
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+$small-breakpoint: em(1024) !default;
+
+@mixin respond-to($media) {
+  @if $media == non-mobile {
+    @media only screen and (min-width: $small-breakpoint) { @content; }
+  }
+}
+
+@font-face {
+    font-family: 'UniversBlack';
+   	src:  url('../fonts/UniversLTStd-Black.otf');
+}
+
+@font-face {
+    font-family: 'UniversLight';
+   	src:  url('../fonts/UniversLTStd-Light.otf');
+}
+
+@mixin center {
+	top: 50%;
+	left:50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+@mixin center-vertical {
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+@mixin center-horizontal {
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0 0 0 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans';
+}
+
+input[type=range] {
+	@include center-horizontal;
+	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+	background: transparent; /* Otherwise white in Chrome */
+	width: 90%;
+	position: relative;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	top: 50%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+@mixin thumb {
+	border-radius: 5px;
+	height: 30px;
+	width: 30px;
+	background-color: $color3;
+	cursor: pointer;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  @include thumb;
+  -webkit-appearance: none;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  @include thumb;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+	@include thumb;
+}
+
+@mixin slider {
+	width: 90%;
+	position: relative;
+	height: 5px;
+	background-color: $color2;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	@include slider;
+}
+
+input[type=range]::-moz-range-track {
+	@include slider;
+}
+
+input[type=range]::-ms-track {
+	@include slider;
+}
+
+input[type=range]::-ms-fill-lower {
+	@include slider;
+}
+
+input[type=range]::-ms-fill-upper {
+	@include slider;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+.form {
+	@include center-vertical;
+	position: absolute;
+	width: 100%;
+	height: 80%;
+	&__input {
+		height: calc(100% / 5);
+		width: 100%;
+	}
+	&__value {
+		@include center-horizontal;
+		display: inline-block;
+		color: $color1;
+		position: relative;
+		top: 30px;
+		font-size: 1.8em;
+		text-align: center;
+	}
+}
+
+.repayment {
+	color: $color3;
+	position: absolute;
+	height: 10%;
+	width: 100%;
+	bottom: 0;
+	span {
+		display: inline-block;
+		@include center;
+		position: relative;
+		font-size: 2.2em;
+	}
+}
+
+
