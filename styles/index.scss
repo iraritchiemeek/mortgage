@@ -1,6 +1,6 @@
-$color1: #50197A;
-$color2: #662D91;
-$color3: #4CAE4C;
+$green: #44B74D;
+$purple: #662d91;
+$orange: #FFA726;
 
 $neutral1:white;
 $neutral2:#ECEFF2;
@@ -85,10 +85,13 @@ input[type=range]::-ms-track {
 
 @mixin thumb {
 	border-radius: 5px;
+	border: 1px solid $purple;
 	height: 30px;
 	width: 30px;
-	background-color: $color3;
+	background-color: $orange;
 	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0,0,0,.3);
+
 }
 
 /* Special styling for WebKit/Blink */
@@ -109,12 +112,13 @@ input[type=range]::-ms-thumb {
 }
 
 @mixin slider {
-	width: 90%;
+	width: 80%;
 	position: relative;
 	height: 5px;
-	background-color: $color2;
+	background-color: $purple;
 	cursor: pointer;
 	border-radius: 5px;
+	top: -30px;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -143,19 +147,34 @@ input[type=range]::-ms-fill-upper {
 }
 
 .form {
-	@include center-vertical;
+	// @include center-vertical;
+	top: 15%;
 	position: absolute;
 	width: 100%;
-	height: 80%;
+	height: 60%;
 	&__input {
-		height: calc(100% / 5);
+		height: calc(100% / 4);
 		width: 100%;
+		position: relative;
+		&:after {
+			@include center-horizontal;
+			content: "";
+			position: absolute;
+			display: inline-block;
+			width: 90%;
+			height: 2px;
+			background-color: black;
+			top: 0px;
+			opacity: 0.1;
+
+		}
 	}
 	&__value {
 		display: inline-block;
 		color: black;
-		position: relative;
-		top: 30px;
+		position: absolute;
+		top: 10px;
+		margin-right: 5%;
 		font-size: 1.8em;
 		text-align: center;
 		right: 0;
@@ -163,78 +182,46 @@ input[type=range]::-ms-fill-upper {
 	&__label {
 		display: inline-block;
 		position: relative;
-		font-size: 1.7em;
+		font-size: 1.5em;
 		opacity: 0.7;
-		top: 30px;
+		top: 10px;
 		margin: 0 5% 0 5%;
 		font-weight: 700;
 	}
 }
 
 .repayment {
-	color: $color1;
+	color: white;
 	position: absolute;
-	height: 10%;
+	height: 17%;
 	width: 100%;
 	bottom: 0;
-	background-color: $color3;
+	background-color: $green;
 	span {
+		@include center-horizontal;
 		display: inline-block;
-		@include center;
 		position: relative;
 		font-size: 2.2em;
-	}
-}
-
-.frequency {
-	position: relative;
-	background-color: $color2;
-	margin-top: 5%;
-	height: 17%;
-	&__option {
-		@include center-vertical;
-		position: absolute;
-		width: 28%;
-		height: 60%;
-		box-sizing: border-box;
-		border-radius: 5px;
-		font-size: 1.2em;
-		background-color: white;
-		opacity: 0.7;
-		&:nth-child(1) {
-			left: 0;
-			margin: 0 0 0 20px;
-		}
-		&:nth-child(2) {
-			@include center;
-		}
-		&:nth-child(3) {
-			right: 0;
-			margin: 0 20px 0 0;
-		}
-		span {
-			@include center;
-			color: black;
-			position: relative;
-			display: inline-block;
-		}
-		&--selected {
-			border: 4px solid $color3;
+		text-align: center;
+		opacity: 0.6;
+		&#value {
 			opacity: 1;
+			font-size: 2.5em;
 		}
 	}
-
 }
 
 .title {
-	height: 10%;
+	height: 15%;
 	width: 100%;
 	position: absolute;
 	top: 0;
-	background-color: $color3;
-	h1 {
-		@include center;
-		color: $color1;
+	span {
+		@include center-horizontal;
+		text-shadow: 0 3px 3px rgba(0,0,0,.3);
+		color: $orange;
+		font-size: 2em;
+		top: 5px;
 		position: relative;
 		display: inline-block;
 		margin: 0 0 0 0;

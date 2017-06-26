@@ -12,16 +12,18 @@
 </head>
 <body ng-controller="mainController">
 	<div class="container">
-		<div class="title"><h1>Mortgage Calculator</h1></div>
+		<div class="title">
+			<span>Mortgage Calculator</span>
+		</div>
 		<form class="form">
 			<div class="form__input form__input--house-price">
 				<span class="form__label">House Price</span>
-				<span class="form__value">${{housePrice}}</span>
+				<span class="form__value">${{housePrice | number}}</span>
 				<input type="range" min="100000" max="2000000" step="10000" ng-init="housePrice = 500000" ng-model="housePrice">
 			</div>
 			<div class="form__input form__input--deposit">
 				<span class="form__label">Deposit</span>
-				<span class="form__value">${{(housePrice * deposit/100)}} ({{deposit}}%)</span>
+				<span class="form__value">{{deposit}}% ${{(housePrice * deposit/100) | number}}</span>
 				<input type="range" min="0" max="100" ng-init="deposit = 20" ng-model="deposit">
 			</div>
 			<div class="form__input form__input--terms">
@@ -34,12 +36,11 @@
 				<span class="form__value">{{interest}}% p.a.</span>
 				<input type="range" min="4" max="8" step="0.05" ng-init="interest = 5.5" ng-model="interest">
 			</div>
-			<div class="form__input frequency">
-				<div class="frequency__option frequency__option--selected"><span>Weekly</span></div>
-				<div class="frequency__option"><span>Fortnightly</span></div>
-				<div class="frequency__option"><span>Monthly</span></div>
-			</div>
 		</form>
-		<div class="repayment"><span>${{calcRepayment(housePrice, deposit, loanLength ,interest, 12)}} per week</span></div>
+		<div class="repayment">
+			<span>Repayment of</span>
+			<br>
+			<span id="value">${{calcRepayment(housePrice, deposit, loanLength ,interest, 12) | number}} per week</span>
+		</div>
 	</div>
 </body>
