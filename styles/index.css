@@ -191,10 +191,10 @@ input[type=range]::-ms-fill-upper {
   top: 0; }
   .title span {
     left: 5%;
-    color: #FFA726;
-    font-size: 2.3em;
-    top: 5px;
-    position: relative;
+    color: #662d91;
+    font-size: 2.5em;
+    top: 50px;
+    position: absolute;
     display: inline-block;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
@@ -205,8 +205,8 @@ input[type=range]::-ms-fill-upper {
     background-repeat: no-repeat;
     position: relative;
     left: 5%;
-    margin-top: 5px;
+    margin: 15px 0 0 0;
     height: 50px;
-    width: 130px; }
+    width: 100px; }
 
 /*# sourceMappingURL=index.css.map */
