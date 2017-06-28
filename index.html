@@ -41,7 +41,12 @@
 		<div class="repayment">
 			<span>Repayment of</span>
 			<br>
-			<span id="value">${{calcRepayment(housePrice, deposit, loanLength ,interest, 12) | number}} per week</span>
+			<span id="value">${{calcRepayment(housePrice, deposit, loanLength ,interest, 12) | number}}</span>
+			<select class="repayment__frequency">
+				<option>per week</option>
+				<option>fortnightly</option>
+				<option>per month</option>
+			</select>
 		</div>
 	</div>
 </body>
