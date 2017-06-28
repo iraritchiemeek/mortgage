@@ -41,11 +41,10 @@
 		<div class="repayment">
 			<span>Repayment of</span>
 			<br>
-			<span id="value">${{calcRepayment(housePrice, deposit, loanLength ,interest, 12) | number}}</span>
-			<select class="repayment__frequency">
-				<option>per week</option>
-				<option>fortnightly</option>
-				<option>per month</option>
+			<span  ng-show="freq.value == 'weekly'" id="value">${{calcRepayment(housePrice, (housePrice * deposit/100), loanLength ,interest, 52) | number}}</span>
+			<span ng-show="freq.value == 'fortnightly'" id="value">${{calcRepayment(housePrice, (housePrice * deposit/100), loanLength ,interest, 26) | number}}</span>
+			<span ng-show="freq.value == 'monthly'" id="value">${{calcRepayment(housePrice, (housePrice * deposit/100), loanLength ,interest, 12) | number}}</span>
+			<select ng-model="freq" class="repayment__frequency" ng-options="option.name for option in options">
 			</select>
 		</div>
 	</div>
